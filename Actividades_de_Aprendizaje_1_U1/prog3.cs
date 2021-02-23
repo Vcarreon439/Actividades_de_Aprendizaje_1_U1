@@ -23,16 +23,48 @@ namespace Actividades_de_Aprendizaje_1_U1
             db.Dibujar_Diana(ref pictureBox1, 5, 5);
         }
 
+        private ListaColores CrearListaColores(int cant) 
+        {
+            ListaColores lista = new ListaColores();
+
+            for (int i = 0; i < cant; i++)
+            {
+                using (ColorDialog selector = new ColorDialog())
+                {
+                    ColorDialog selectorfond = new ColorDialog();
+                    MessageBox.Show("Seleccione el color de relleno");
+                    selector.ShowDialog();
+                    MessageBox.Show("Seleccione el color del margen");
+                    selectorfond.ShowDialog();
+                    //selector.Color;
+                    lista.InsertarAlFinal(selector.Color, selectorfond.Color);
+                }
+            }
+
+            return lista;
+        }
+
         private void btnDibujar_Click2(object sender, EventArgs e)
         {
-            if (ValidarCampos())
+            try
             {
-                int[] valores = { int.Parse(txtCoordX.Text), int.Parse(txtCoordY.Text), int.Parse(txtSize.Text)};
+                if (ValidarCampos())
+                {
+                    int[] valores = { int.Parse(txtCoordX.Text), int.Parse(txtCoordY.Text), int.Parse(txtSize.Text)};
+                    Dibujo db = new Dibujo();
 
-                Dibujo db = new Dibujo();
-                db.Dibujar_Diana(ref pictureBox1, valores[0], valores[1], null,valores[2]);
+                    if (chkBxColor.Checked == false)
+                        db.Dibujar_Diana(ref pictureBox1, valores[0], valores[1], null, valores[2]);
+                    else
+                        db.Dibujar_Diana(ref pictureBox1, valores[0], valores[1], CrearListaColores(4), valores[2]);
+                }
             }
-            
+            catch (Exception es)
+            {
+                MessageBox.Show(es.Message);
+                throw;
+            }
+
         }
 
         private bool ValidarCampos() 
