@@ -319,7 +319,6 @@ namespace Actividades_de_Aprendizaje_1_U1
                     //solidBrush = new SolidBrush(lista.Tomar());
                     papel.FillEllipse(solidBrush, center[0], center[1], tamaño, tamaño);
                     papel.DrawEllipse(lapiz, center[0], center[1], tamaño, tamaño);
-                    MessageBox.Show($"{center[0].ToString()}  {center[1].ToString()}");
                     tamaño -= 20;
                     center[0] += 10;
                     center[1] += 10;

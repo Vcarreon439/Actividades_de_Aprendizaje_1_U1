@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Actividades_de_Aprendizaje_1_U1
@@ -62,7 +55,6 @@ namespace Actividades_de_Aprendizaje_1_U1
             catch (Exception es)
             {
                 MessageBox.Show(es.Message);
-                throw;
             }
 
         }
