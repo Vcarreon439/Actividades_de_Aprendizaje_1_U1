@@ -19,7 +19,7 @@ namespace Actividades_de_Aprendizaje_1_U1
 
             papel = pct.CreateGraphics();
             Pen lapiz = new Pen(Color.Black);
-
+            papel.Clear(Color.White);
             papel.DrawRectangle(lapiz, 10, 10, 100, 50);
             papel.DrawRectangle(lapiz, 10, 75, 100, 100);
         }
@@ -100,7 +100,7 @@ namespace Actividades_de_Aprendizaje_1_U1
             if (this.Size.Height<400)
             {
                 //Cambio de tamaño de la forma
-                this.Size = new Size(this.Size.Width, 430);
+                this.Size = new Size(this.Size.Width, 660);
                 //Cambio del icono flecha
                 this.icnPctBoxFlecha.IconChar = FontAwesome.Sharp.IconChar.AngleUp;
                 //Cambio de Evento Click para opcion de coordenadas
@@ -122,5 +122,81 @@ namespace Actividades_de_Aprendizaje_1_U1
 
         }
 
+
+        int xPos, yPos, ancho, alto;
+
+        private void trcBrAlto_Scroll(object sender, EventArgs e)
+        {
+            lblAlto.Text = trcBrAlto.Value.ToString();
+
+            //Posiciones
+            xPos = trcBrX.Value;
+            yPos = trcBrY.Value;
+            //Tamaño
+            ancho = trcBrAncho.Value;
+            alto = trcBrAlto.Value;
+
+            Pen lapiz = new Pen(Color.Black);
+            Graphics papel;
+            papel = pctAreaDibujo.CreateGraphics();
+            papel.Clear(Color.White);
+            papel.DrawRectangle(lapiz, xPos, yPos, ancho, alto);
+        }
+
+        private void trcBrAncho_Scroll(object sender, EventArgs e)
+        {
+            lblAncho.Text = trcBrAncho.Value.ToString();
+
+            //Posiciones
+            xPos = trcBrX.Value;
+            yPos = trcBrY.Value;
+            //Tamaño
+            ancho = trcBrAncho.Value;
+            alto = trcBrAlto.Value;
+
+            Pen lapiz = new Pen(Color.Black);
+            Graphics papel;
+            papel = pctAreaDibujo.CreateGraphics();
+            papel.Clear(Color.White);
+            papel.DrawRectangle(lapiz, xPos, yPos, ancho, alto);
+        }
+
+        private void trcBrY_Scroll(object sender, EventArgs e)
+        {
+            lblY.Text = trcBrY.Value.ToString();
+
+            //Posiciones
+            xPos = trcBrX.Value;
+            yPos = trcBrY.Value;
+            //Tamaño
+            ancho = trcBrAncho.Value;
+            alto = trcBrAlto.Value;
+
+            Pen lapiz = new Pen(Color.Black);
+            Graphics papel;
+            papel = pctAreaDibujo.CreateGraphics();
+            papel.Clear(Color.White);
+            papel.DrawRectangle(lapiz, xPos, yPos, ancho, alto);
+        }
+
+        private void trcBrX_Scroll(object sender, EventArgs e)
+        {
+            lblX.Text = trcBrX.Value.ToString();
+            
+            //Posiciones
+            xPos = trcBrX.Value;
+            yPos = trcBrY.Value;
+            //Tamaño
+            ancho = trcBrAncho.Value;
+            alto = trcBrAlto.Value;
+
+            Pen lapiz = new Pen(Color.Black);
+            Graphics papel;
+            papel = pctAreaDibujo.CreateGraphics();
+            papel.Clear(Color.White);
+            papel.DrawRectangle(lapiz, xPos, yPos, ancho, alto);
+
+
+        }
     }
 }
